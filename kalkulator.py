@@ -1,4 +1,5 @@
 import tkinter as tk
+import math
 from tkinter.constants import COMMAND
 
 FONT = ("Verdana", 10)
@@ -31,7 +32,7 @@ class StartPage(tk.Frame):
         top_label = tk.Label(self, height = 5 , font = FONT, fg = "white", bg = "#1f1f1f", text = "KALKULATOR", padx = 10, anchor="e")
         top_label.pack(side="top", fill="x")
 
-        
+
         buttons = []
         values = ["%", "CE", "C", "<-", "1/x", "x^2", "sqrt()", "/", "7","8","9","*", "4","5","6","-", "1","2","3","+", "+/-", "0",".", "="]
         
@@ -90,6 +91,15 @@ class StartPage(tk.Frame):
                 top_label.config(text=self.equation)
 
             buttons[4]["command"] = lambda:button_4()
+
+
+            def button_6():
+                eq = self.equation
+                self.equation = ""
+                self.equation += f"math.sqrt({eq})"
+                top_label.config(text = self.equation.split('.')[1])
+
+            buttons[6]["command"] = lambda:button_6()
 
             def button_23():
                 try:
