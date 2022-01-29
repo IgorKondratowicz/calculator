@@ -1,1 +1,1 @@
-# Simple calculator using Tkinter module written in python
+# Simple calculator using Tkinter
